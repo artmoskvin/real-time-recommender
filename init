@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+
+function build() {
+  while getopts ":t:" opt; do
+    case $opt in
+      t)
+        TAG=${OPTARG}
+        ;;
+      *)
+        echo "Unkown flag -${OPTARG}"
+    esac
+  done
+  docker build -t ${TAG:-product_recommender} .
+}
+
+function run() {
+  while getopts ":n:p:" opt; do
+    case $opt in
+      n)
+        NAME=${OPTARG}
+        ;;
+      p)
+        HTTP_PORT=${OPTARG}
+        ;;
+      *)
+        echo "Unkown flag -${OPTARG}"
+    esac
+  done
+  docker run -itd --name ${NAME:-product_recommender} -p ${HTTP_PORT:-8090}:8090 product_recommender
+}
+
+function stop() {
+  while getopts ":n:" opt; do
+    case $opt in
+      n)
+        NAME=${OPTARG}
+        ;;
+      *)
+        echo "Unkown flag -${OPTARG}"
+    esac
+  done
+  docker stop ${NAME:?"Need to set a name with -n"}
+}
+
+function rm() {
+  while getopts ":n:" opt; do
+    case $opt in
+      n)
+        NAME=${OPTARG}
+        ;;
+      *)
+        echo "Unkown flag -${OPTARG}"
+    esac
+  done
+  docker rm ${NAME:?"Need to set a name with -n"}
+}
+
+
+COMMAND=$1; shift
+case "${COMMAND}" in
+  build)
+    build $@
+    ;;
+  run)
+    run $@
+    ;;
+  stop)
+    stop $@
+    ;;
+  rm)
+    rm $@
+    ;;
+  *)
+    echo "Incorrect usage, see script for options"
+    exit 1
+esac
+
+exit 0
