@@ -298,7 +298,7 @@ caused by recommendation display `recommendationId` should be filled in. For exa
 in Recommended block, product recommender should receive event with `recommendationId` filled in.
 
 There is UI for visualizing these metrics. The frontend part is currently not implemented. However the backend part
-(API calls) is ready. You can find mockups with API calls description [here][9].
+(API calls) is ready.
 
 # Contacts
 Artem Moskvin moscowart99@gmail.com
@@ -311,4 +311,3 @@ Artem Moskvin moscowart99@gmail.com
 [6]: http://storm.apache.org/releases/1.0.2/Setting-up-a-Storm-cluster.html "Setting up Storm cluster"
 [7]: http://cassandra.apache.org/doc/latest/getting_started/installing.html "Installing Cassandra"
 [8]: https://www.docker.com/products/docker "Getting Started with Docker"
-[9]: https://drive.google.com/drive/folders/0B3TgTQciirlhbDhleC1ZcHRadE0?usp=sharing "Metrics UI mockups"
