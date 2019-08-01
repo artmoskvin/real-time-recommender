@@ -17,8 +17,6 @@ To recalculate recommendations in real-time there has to be suitable algorithm. 
 perfectly scalable. This product recommender supports different algorithms for different use cases. All of them are described
 in details in Recommenders section.
 
-# Architecture
-![Product Recommender Architecture.png](https://bitbucket.org/repo/gdEkXx/images/2392421889-Product%20Recommender%20Architecture.png)
 # Recommenders
 At the moment Product Recommender supports following recommenders:
 
