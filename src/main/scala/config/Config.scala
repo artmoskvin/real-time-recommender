@@ -5,7 +5,7 @@ object Config {
   val TOPIC = "recommender-clickstream"
   val ZK_SPOUT_ID = "kafka-recommender-clickstream"
 
-  val CASSANDRA_HOST = "192.168.3.7"
+  val CASSANDRA_HOST = "localhost"
   val CASSANDRA_KEYSPACE = "product_recommender"
 
   val ACTION_WEIGHTS = Map(
